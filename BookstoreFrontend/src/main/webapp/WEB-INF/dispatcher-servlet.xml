@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
+
+	<mvc:annotation-driven />
+
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+
+	<!-- 2. id : HandlerMapping :- scan the input URL and tell the front controller 
+		which data generate a class to be called for further processing the request 
+		. -->
+
+	<context:component-scan base-package="com.*" />
+
+	<!-- 4. This section is the data generator class / controller -->
+	<!-- bean name = "/about.jsp" class = "com.niit.BookstoreFrontend.controller.PageController" 
+		/> -->
+
+	<!-- 3. This section tells which view resolver to use whose job is to tell 
+		exact location of the view present in the project . -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+
+		
+		<!-- Note : 1. After web.xml : dispatcher-servlet.xml :- makes front controller 
+			work and take charge of controlling the overall application . It is a file 
+			that contains all relevant information and resides in web-inf folder -->
+
+	</bean>
+	
+	<!--  id must be compulsorily multipartResolver else it wont work -->
+ 	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- <property name="maxUploadSize" value="100000" />  --> 
+		
+	</bean> 
+
+</beans>
