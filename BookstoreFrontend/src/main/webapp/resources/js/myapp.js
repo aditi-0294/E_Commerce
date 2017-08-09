@@ -204,7 +204,7 @@ $(function() {
 	
 	/*	Data Table for admin	*/
  	
-		// *****************	Products start		*****************
+		// *****************	Admin Products start		*****************
 	var $adminProductsTable = $('#AdminProductsTable') ;
 	
 	// execute the following code only where we have this table 
@@ -321,10 +321,11 @@ $(function() {
 		
 	}
 	
-	// *****************	Products End		*****************
+	// *****************	Admin Products End		*****************
 	
-	// *****************	Categories start		*****************
+	// *****************	Admin Categories start		*****************
 
+	/*
 	var $adminCategoryTable = $('#AdminCategoryTable') ;
 	
 	// execute the following code only where we have this table 
@@ -387,9 +388,76 @@ $(function() {
 		
 	}
 	
-	// *****************	Categories End		*****************
+	*/
 	
-	// *****************	Suppliers start		*****************
+	
+
+	var $adminCategoryTable = $('#AdminCategoryTable') ;
+	
+	// execute the following code only where we have this table 
+	if($adminCategoryTable.length) {
+		
+	//	console.log('Inside the table') ;
+	
+	var jsonUrl = window.contextRoot + '/json/data/admin/all/categories' ;
+	
+		
+	$adminCategoryTable.DataTable( {
+			
+			lengthMenu: [[10,20,50,-1] , ['10 Products' , '20 Products' , '50 Products' , 'ALL Products']], //-1 : display all records else display 10 , 20 and 50 records 
+			pageLength: 10 , // no. of records per page
+			//data: products
+			
+			ajax : {
+				
+				url: jsonUrl ,
+				dataSrc: '' //collection of objects without any name 
+			} ,
+			
+			columns : [
+				
+						{
+							
+							data: 'catid'
+							
+						} ,
+						
+						{
+							data: 'cat_name' 
+						} ,
+						
+						{
+							data: 'cat_desc'
+						} ,
+						{
+							data : 'catid' ,
+							bSortable: false , // removes sorting symbol from the last column
+							mRender : function(data, type, row) { // here , data represents the id but row contains information about the entire product 
+								
+								var str = '' ;
+						
+								// for editing or updating the category
+								str += '<a href = "'+window.contextRoot+'/manage/'+data+'/category" class = "btn btn-info"> Edit </a> &#160;&#160;'
+								
+								// for deleting the category
+								str += '<a href = "'+window.contextRoot+'/manage/delete/'+data+'/category" class = "btn btn-danger"> Delete </a>'
+
+								
+								return str ;
+								
+							}
+						}
+										
+			]
+			
+		}) ;
+		
+	}
+
+	
+	// *****************	Admin Categories End		*****************
+	
+	// *****************	Admin Suppliers start		*****************
 
 	var $adminSupplierTable = $('#AdminSupplierTable') ;
 	
@@ -453,7 +521,7 @@ $(function() {
 		
 	}
 	
-	// *****************	Suppliers End		*****************
+	// *****************	Admin Suppliers End		*****************
 	/*	End of Data Table for Admin	*/
 	
 	});
