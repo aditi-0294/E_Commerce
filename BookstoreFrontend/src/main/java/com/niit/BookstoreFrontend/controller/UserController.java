@@ -38,11 +38,11 @@ public class UserController {
 		m.addAttribute("userClickRegister" , true) ;
 		m.addAttribute("title" , "Register Page") ;
 		
-		UserDetail newUserDetail = new UserDetail() ;
+		UserDetail userDetail = new UserDetail() ;
 		
 		if(operation != null) {
 			
-			if(operation.equals("newUserDetail")) {
+			if(operation.equals("userDetail")) {
 				
 				m.addAttribute("message" , "Successfully Registered .... User details submitted successfully !") ;
 			}
