@@ -69,7 +69,7 @@ public class CategoryController {
 			
 			m.addAttribute("userClickManageCategory" , true) ;
 			m.addAttribute("title" , "Manage Categories Page") ;
-			m.addAttribute("message" , "Validation failed for supplier submission !") ;
+			m.addAttribute("message" , "Validation failed for category submission !") ;
 					
 			return "page_control" ; // incase redirect method is used then error message will not be displayed .
 		}		
@@ -77,9 +77,10 @@ public class CategoryController {
 		// create a new record to store these categories
 	
 		//categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
+		//categoryDAO.insertUpdateCategory(mCategory);
 		
 		
-		if(mCategory.getCatid() == 0) {
+		if(mCategory.getCatid()==0) {
 			
 			categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
 		
@@ -90,6 +91,7 @@ public class CategoryController {
 			categoryDAO.insertUpdateCategory(mCategory); // update existing record if category id exists 
 	
 		}
+		
 		
 		return "redirect:/manage/category?operation=category" ; // passes message (in the form of query string ) from one url to another url
 	}
@@ -113,13 +115,6 @@ public class CategoryController {
 			
 		m.addAttribute("category" , newCategory) ; // manageSupplier.jsp ka modelAttribute name 
 		
-		/*
-		if(newCategory.getCatid() == 0)
-			categoryDAO.insertUpdateCategory(newCategory); // insert new record if category id is null or zero
-		else
-			categoryDAO.insertUpdateCategory(newCategory); // update existing record if category id exists 
-		
-		*/
 		return "page_control" ;
 	}
 
