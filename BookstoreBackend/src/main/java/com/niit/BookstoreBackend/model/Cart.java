@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Cart {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	@Column(name = "Cart_Id")
 	int cartid ; 
 	
