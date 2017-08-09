@@ -44,54 +44,6 @@
 		</c:if>
 
 
-
-
-
-
-		<%--
-	<div class="row">
-		<!-- Start of first row class -->
-
-		<c:if test="${not empty message}">
-
-			<div class="col-xs-12">
-				<!-- Start of col-xs-12 class -->
-
-				<div class="alert alert-success alert-dismissible">
-
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-
-					${message}
-
-				</div>
-
-			</div>
-			<!-- End of col-xs-12 class -->
-
-		</c:if>
-
---%>
-
-		<%--		
-		<c:if test="${not empty message}">
-
-			<div class="row">
-				<!-- Start of first row class -->
-				<div class="col-md-offset-3 col-md-6">
-					<!-- start of col-md-3 class (3 and 6 resp) -->
-
-					<div class="alert alert-danger">${message}</div>
-
-				</div>
-				<!-- End of first row class -->
-			</div>
-			<!-- End of col-md-3 class (3 and 6 resp) -->
-
-
-		</c:if>
-
---%>
-
 		<div class="col-md-offset-2 col-md-8">
 			<!-- Start of col-md-6 class -->
 
@@ -236,7 +188,7 @@
 							<div class="col-md-8">
 								<!-- Start of col-md-8 class -->
 
-								<input type="number" name="mobile_number" id="mobile_number"
+								<input type="text" name="mobile_number" id="mobile_number"
 									pattern="[0-9]{10}" class="form-control" required /> <em
 									class="help-block">Please enter valid 10 digit number ! </em>
 
