@@ -19,7 +19,7 @@ public class FileUploadUtility {
 	
 	private static final String ABS_PATH = "" ; // represents project location
 	
-	private static String REAL_PATH = "E:\\github_ECommerce_1\\E_Commerce_final_1\\BookstoreFrontend\\src\\main\\webapp\\resources\\images\\" ; // deployed by tomcat for realtime application
+	private static String REAL_PATH = "E:\\NIIT\\github_ECommerce\\E_Commerce\\BookstoreFrontend\\src\\main\\webapp\\resources\\images\\" ; // deployed by tomcat for realtime application
 
 	public static void uploadFile(HttpServletRequest request, MultipartFile p_image, String code) {
 		
