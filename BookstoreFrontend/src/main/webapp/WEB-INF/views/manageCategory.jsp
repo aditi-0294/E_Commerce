@@ -75,7 +75,7 @@
 
 								<sf:input type="text" path="cat_name" id="cat_name"
 									placeholder="Category Name" class="form-control" />
-								<%--  	<em class="help-block">Please enter Category Name ! </em> --%>
+								<%--  	<em class="help-block">Please enter Supplier Name ! </em>  --%>
 
 								<sf:errors path="cat_name" cssClass="help-block" element="em" />
 
@@ -97,9 +97,9 @@
 							<div class="col-md-8">
 								<!-- Start of second col-md-8 class -->
 
-								<sf:textarea path="cat_desc" id="cat_desc" rows="2"
+								<sf:textarea path="cat_desc" id="cat_desc" rows="3"
 									placeholder="Category Description" class="form-control"></sf:textarea>
-								<%-- 	<em class="help-block">Please enter Category Description ! </em>  --%>
+								<%-- 	<em class="help-block">Please enter Supplier Address ! </em>    --%>
 
 								<sf:errors path="cat_desc" cssClass="help-block" element="em" />
 
@@ -113,6 +113,7 @@
 						<!-- for submit button -->
 						<div class="form-group">
 							<!-- Start of form-group class -->
+
 
 							<div class="col-md-offset-4 col-md-8">
 								<!-- Start of second col-md-8 class -->
@@ -151,6 +152,7 @@
 	</div>
 	<!-- End of first row class -->
 
+
 	<!--  Start of Data Table for Admin -->
 
 	<div class="row">
@@ -171,7 +173,7 @@
 			<div style="overflow: auto">
 				<!-- Start of overflow-auto style -->
 
-				<!-- Category table for admin -->
+				<!-- Supplier table for admin -->
 				<table id="AdminCategoryTable"
 					class="table table-striped table-bordered">
 
@@ -208,5 +210,7 @@
 
 
 	<!--  End of data table for Admin -->
+
+
 </div>
 <!-- End of Container class -->
