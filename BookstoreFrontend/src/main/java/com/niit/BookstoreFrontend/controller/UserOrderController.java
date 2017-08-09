@@ -61,7 +61,7 @@ public class UserOrderController {
 	}
 
 	
-	/*
+	
 	@RequestMapping(value = "/cart/confirm/{cartid}")
 	public String showConfirmOrder(@ModelAttribute UserOrder order , @PathVariable int cartid , Model m) {
 		
@@ -79,9 +79,9 @@ public class UserOrderController {
 		
 		
 	}
-	*/
 	
 	
+/*	
 	//@Value("/order")
 	@RequestMapping(value = "/cart/confirm/{cartid}" )
 	public String showConfirmOrder(@PathVariable Integer cartid , Model m) {
@@ -101,6 +101,6 @@ public class UserOrderController {
 		
 	}
 	
-	
+*/	
 	
 }
