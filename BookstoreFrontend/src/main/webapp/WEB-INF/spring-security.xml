@@ -1,0 +1,80 @@
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd		
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+	<!-- Minimal http requirement -->
+
+	<http pattern="/resources/**" security="none" />
+
+	<http auto-config="true" use-expressions="true">
+
+		<!-- creating set of filters to access particular files -->
+
+		<!--<intercept-url pattern = "/login" access = "permitAll" requires-channel="any" 
+			/> -->
+
+		<!-- For Admin : Edit and Delete operations -->
+		<intercept-url pattern="/manage/**" access="hasAuthority('Admin')"
+			requires-channel="any" />
+
+
+		<!-- Add cart part for registered users -->
+		<intercept-url pattern = "/cart/**" access = "hasAuthority('User')" 
+			requires-channel="any" /> 
+
+
+		<!-- For everyone irrespective of admin and users -->
+		<intercept-url pattern="/**" access="permitAll"
+			requires-channel="any" />
+
+
+
+		<!-- End of filters for accessing particular files -->
+		<form-login login-page="/login" 
+		
+			username-parameter="username"
+			password-parameter="password"
+			
+			default-target-url="/home"
+			always-use-default-target="true" 
+			
+			/>
+			
+
+		<access-denied-handler error-page="/access-denied" />
+
+		<logout 
+
+			logout-success-url="/home"
+			logout-url="/logout"		
+		
+		/>
+
+		<csrf disabled="true" />
+		
+	</http>
+
+
+	<!-- Authentication -->
+	<authentication-manager>
+		<authentication-provider>
+
+
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT username , password , role_enabled FROM UserDetail WHERE username = ?"
+				authorities-by-username-query="SELECT username , role FROM UserDetail WHERE username = ?" />
+
+
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
