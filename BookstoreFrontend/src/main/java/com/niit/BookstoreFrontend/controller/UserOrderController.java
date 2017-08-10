@@ -54,6 +54,7 @@ public class UserOrderController {
 		
 		UserOrder userOrder = userOrderDAO.generateOrder(cart) ;
 		
+		m.addAttribute("cart", cart) ;
 		m.addAttribute("order" , userOrder) ;
 		m.addAttribute("cartid" , cartid) ;
 		
