@@ -102,6 +102,7 @@ public class ProductController {
 		
 		productDAO.insertUpdateProduct(mProduct);
 		
+		// image upload
 		if(!mProduct.getP_image().getOriginalFilename().equals("")) { // filename not equals to an empty string so file element (image file) is available for upload
 		
 			FileUploadUtility.uploadFile(request , mProduct.getP_image() , mProduct.getCode()) ; 
