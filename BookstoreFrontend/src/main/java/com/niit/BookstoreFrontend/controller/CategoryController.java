@@ -23,6 +23,9 @@ public class CategoryController {
 	@Autowired
 	CategoryDAO categoryDAO ;
 	
+	//@Autowired
+	//Category category ;
+	
 	public CategoryController() {
 		
 		System.out.println("Default Constructor of Category Controller of frontend controller package ....");
@@ -60,7 +63,8 @@ public class CategoryController {
 	// Handling Category submission
 	@RequestMapping(value = "/category" , method = RequestMethod.POST)
 	public String handleCategorySubmission(@Valid @ModelAttribute("category") Category mCategory , BindingResult result , Model m) {
-	
+//	public String handleCategorySubmission(@Valid @ModelAttribute Category category , BindingResult result , Model m) {
+
 		System.out.println("Redirecting to manageCategory.jsp from Category Controller section (handleCategorySubmission method).... ");
 		System.out.println();
 		
@@ -79,7 +83,7 @@ public class CategoryController {
 		//categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
 		//categoryDAO.insertUpdateCategory(mCategory);
 		
-		
+		/*
 		if(mCategory.getCatid()==0) {
 			
 			categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
@@ -91,9 +95,23 @@ public class CategoryController {
 			categoryDAO.insertUpdateCategory(mCategory); // update existing record if category id exists 
 	
 		}
+		*/
 		
+		/* CategoryDAO.java - alternate method - Start */
+		if(mCategory.getCatid() == 0) {
+			
+			categoryDAO.addCategory(mCategory) ; // insert new record if category id is null or zero
+		}
 		
+		else {
+			
+			categoryDAO.updateCategory(mCategory) ; // update existing record if category id exists
+		}
+		/* CategoryDAO.java - alternate method - End */
 		return "redirect:/manage/category?operation=category" ; // passes message (in the form of query string ) from one url to another url
+
+	//	return "redirect:/manage/category" ; // passes message (in the form of query string ) from one url to another url
+
 	}
 	
 	// Edit or update the category
@@ -112,9 +130,9 @@ public class CategoryController {
 		
 		// fetch category from the database
 		Category newCategory = categoryDAO.getCategory(catid) ;
-			
-		m.addAttribute("category" , newCategory) ; // manageSupplier.jsp ka modelAttribute name 
 		
+		m.addAttribute("category" , newCategory) ; // manageSupplier.jsp ka modelAttribute name 
+	
 		return "page_control" ;
 	}
 
