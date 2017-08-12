@@ -8,10 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
 @Entity // DB name
 @Table // table name in DB
-
+@Component
 public class Category {
 
 	@Id // indicates member field is primary key of current entity
