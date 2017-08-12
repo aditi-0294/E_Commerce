@@ -30,10 +30,11 @@ public class CategoryDAO {
 	}
 
 
-	
+	//@Transactional
 	public Category getCategory(int catid) {
 
 		Session session = sessionFactory.openSession();
+		//Session session = sessionFactory.getCurrentSession(); //
 		Category category = (Category) session.get(Category.class, catid);
 		session.close();
 		return category;
@@ -46,6 +47,7 @@ public class CategoryDAO {
 	}
 
 	
+	@Transactional
 	public List<Category> getCategoryDetails() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from Category");
@@ -59,5 +61,45 @@ public class CategoryDAO {
 		
 		return null ;
 	}
+	
+	
+	/* start of alternate method : */
+	// add / save category
+	@Transactional
+	public boolean addCategory(Category category) {
+		
+		try {
+			
+			sessionFactory.getCurrentSession().persist(category);
+			return true ;
+		}
+		
+		catch (Exception e) {
+			
+			System.out.println("Exception Arised : " + e.getMessage());
+			return false ;
+			
+		}
+	}
+	
+	
+	// update category
+	@Transactional
+	public boolean updateCategory(Category category) {
+		
+		try {
+			
+			sessionFactory.getCurrentSession().update(category);
+			return true ;
+		}
+		
+		catch (Exception e) {
+			
+			System.out.println("Exception Arised : " + e.getMessage());
+			return false ;
+		}
+	}
+	
+	/* End of Alternate Method */
 
 }
