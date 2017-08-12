@@ -17,9 +17,9 @@ public class FileUploadUtility {
 	}
 	
 	
-	private static final String ABS_PATH = "" ; // represents project location
+	private static final String ABS_PATH = "E:\\NIIT\\github_ECommerce\\E_Commerce\\BookstoreFrontend\\src\\main\\webapp\\resources\\images\\" ; // represents project location
 	
-	private static String REAL_PATH = "E:\\NIIT\\github_ECommerce\\E_Commerce\\BookstoreFrontend\\src\\main\\webapp\\resources\\images\\" ; // deployed by tomcat for realtime application
+	private static String REAL_PATH = "" ; // deployed by tomcat for realtime application
 
 	public static void uploadFile(HttpServletRequest request, MultipartFile p_image, String code) {
 		
@@ -54,6 +54,8 @@ public class FileUploadUtility {
 		}
 		
 		catch(IOException ie) {
+			
+			System.out.println("Exception Arised : " + ie.getMessage());
 			
 		}
 	}
