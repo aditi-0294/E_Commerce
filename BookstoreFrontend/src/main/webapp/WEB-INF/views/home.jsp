@@ -11,6 +11,9 @@
 </body>
 </html> --%>
 
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
+
+
 <div class="container">
 	<h2>Welcome to online BookStore ...</h2>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -25,8 +28,8 @@
 		<div class="carousel-inner">
 
 			<div class="item active">
-				<img src="${images}/carousel_1.gif" alt="Welcome"
-					style="width: 600px; height: 400px;">
+				<img src="${images}/logo_1.gif" alt="Welcome"
+					style="width: 600px; height: 400px; margin: 0 auto">
 				<div class="carousel-caption">
 					<h3>Welcome to BooksArchive !!</h3>
 					<p>An online bookstore portal .</p>
@@ -35,7 +38,7 @@
 
 			<div class="item">
 				<img src="${images}/carousel_2.gif" alt="Books World"
-					style="width: 600px; height: 400px;">
+					style="width: 600px; height: 400px; margin: 0 auto">
 				<div class="carousel-caption">
 					<h3>Books World</h3>
 					<p>Waiting to be read .</p>
@@ -44,7 +47,7 @@
 
 			<div class="item">
 				<img src="${images}/Carousel_3.jpg" alt="New York"
-					style="width: 600px; height: 400px;">
+					style="width: 600px; height: 400px; margin: 0 auto; ">
 				<div class="carousel-caption">
 					<h3>Technical Books</h3>
 					<p>Necessity of every Engineering student .</p>
@@ -70,14 +73,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-5 col-sm-6">
-					
+
 					<div class="clearfix"></div>
 					<h2 class="section-heading">
-						Fantasy Genre<br>Special Thanks
+						Fantasy Genre<br>
 					</h2>
-					<p class="lead">A special thanks to Death to the Stock Photo
-						for providing the photographs that you see in this template. Visit
-						their website to become a member.</p>
+					<p class="lead">Explore into an imaginative , creative and
+						narrative elements , journeys and quests that relies on the use
+						real-world folklore and mythology as inspiration</p>
 				</div>
 				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
 					<img class="img-responsive" src="${images}/lp_fantasy.jpg" alt="">
@@ -96,18 +99,18 @@
 
 			<div class="row">
 				<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-					
+
 					<div class="clearfix"></div>
 					<h2 class="section-heading">
-						Photography<br>by PSDCovers
+						Photography<br>
 					</h2>
-					<p class="lead">Turn your 2D designs into high quality, 3D
-						product shots in seconds using free Photoshop actions by SDCovers!
-						Visit their website to download some of their awesome, free
-						photoshop actions!</p>
+					<p class="lead">Learn Photography ... Turn your 2D designs into
+						high quality, 3D product shots in seconds using free Photoshop
+						actions by SDCovers!</p>
 				</div>
 				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
-					<img class="img-responsive" src="${images}/lp_photo.gif" alt="">
+					<img class="img-responsive" src="${images}/lp_photo.gif" alt=""
+						style="width: 198px; height: 254px;">
 				</div>
 			</div>
 
@@ -122,15 +125,18 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-					
+				<div class="col-lg-5 col-sm-6">
+
 					<div class="clearfix"></div>
 					<h2 class="section-heading">
-						Romance genre<br>by PSDCovers
+						Romance genre<br>
 					</h2>
-					<p class="lead">Welcome to the world of romance and tragedy ...</p>
+					<p class="lead">Endure in a spirit of hope - the need of
+						patience in adversity, and the importance of providence in human
+						affairs. The natural good in humanity is put under pressure but
+						preserved through the action of providence</p>
 				</div>
-				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
+				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
 					<img class="img-responsive" src="${images}/lp_romance.jpg" alt="">
 				</div>
 			</div>
@@ -140,3 +146,5 @@
 
 	</div>
 	<!-- /.content-section-b -->
+	
+	
