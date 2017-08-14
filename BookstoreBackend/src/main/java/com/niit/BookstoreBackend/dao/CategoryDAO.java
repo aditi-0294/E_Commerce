@@ -30,12 +30,16 @@ public class CategoryDAO {
 	}
 
 
-	//@Transactional
+	@Transactional
 	public Category getCategory(int catid) {
 
 		Session session = sessionFactory.openSession();
-		//Session session = sessionFactory.getCurrentSession(); //
+	//	Session session = sessionFactory.getCurrentSession(); //
+	//	session.beginTransaction() ;
 		Category category = (Category) session.get(Category.class, catid);
+	//	session.beginTransaction() ;
+	//	session.save(category) ;
+	//	session.flush();
 		session.close();
 		return category;
 	}
@@ -63,7 +67,7 @@ public class CategoryDAO {
 	}
 	
 	
-	/* start of alternate method : */
+	/* start of alternate method : 
 	// add / save category
 	@Transactional
 	public boolean addCategory(Category category) {
@@ -100,6 +104,6 @@ public class CategoryDAO {
 		}
 	}
 	
-	/* End of Alternate Method */
+	// /* End of Alternate Method */
 
 }
