@@ -55,7 +55,7 @@ public class FileUploadUtility {
 		
 		catch(IOException ie) {
 			
-			System.out.println("Exception Arised : " + ie.getMessage());
+		//	System.out.println("Exception Arised : " + ie.getMessage());
 			
 		}
 	}
