@@ -45,7 +45,7 @@ public class PageController {
 	}
 
 	// First page : index.jsp
-	@RequestMapping(value = { "/home", "/index" , "/" })
+	@RequestMapping(value = { "/", "/home", "/index"})
 	public String indexPage(Model m) {
 		System.out.println("Redirecting to index.jsp page from Page Controller section .. ");
 		System.out.println();
@@ -55,6 +55,7 @@ public class PageController {
 		// passing the list of categories
 	//	m.addAttribute("list", categoryDAO.getCategoryDetails()); // header file ka items
 		m.addAttribute("list", categoryDAO.getCategoryDetails()); // header file ka items
+		
 		m.addAttribute("userClickHome", true);
 
 		return "page_control";
@@ -69,6 +70,19 @@ public class PageController {
 
 		m.addAttribute("title", "About Us Page");
 		m.addAttribute("userClickAboutUs", true);
+
+		return "page_control";
+	}
+
+	
+	// Contact Us page
+	@RequestMapping(value = "/contactUs")
+	public String contactUsPage(Model m) {
+		System.out.println("Redirecting to contactUs.jsp page from Page Controller section .. ");
+		System.out.println();
+
+		m.addAttribute("title", "Contact Us Page");
+		m.addAttribute("userClickContactUs", true);
 
 		return "page_control";
 	}
