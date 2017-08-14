@@ -37,6 +37,12 @@ $(function() {
 		$('#about').addClass('active');
 		break;
 
+	case 'Contact Us Page':
+
+		$('#contact').addClass('active');
+		break;
+
+	
 	case 'Register Page':
 
 		$('#register').addClass('active');
