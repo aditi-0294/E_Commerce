@@ -10,6 +10,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
 
+
+
+<!-- Loading static resources -->
 	<mvc:annotation-driven />
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
