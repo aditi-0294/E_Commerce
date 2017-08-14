@@ -136,7 +136,7 @@
 						<a href="javascript:void(0)" class="btn btn-success disabled"><strike>Add
 								to Cart</strike></a>&#160;&#160;&#160;
 
-	<a href="${contextRoot}/show/all/products" class="btn btn-info">Back</a>
+	<%--<a href="${contextRoot}/show/all/products" class="btn btn-info">Back</a>--%>
 
 					</c:when>
 
