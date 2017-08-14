@@ -43,9 +43,9 @@ public class CategoryController {
 		m.addAttribute("userClickManageCategory" , true) ;
 		m.addAttribute("title" , "Manage Categories Page") ;
 		
-		Category newCategory = new Category() ;
+		Category nCategory = new Category() ;
 		
-		m.addAttribute("category" , newCategory) ; // manageCategory.jsp ka modelAttribute name
+		m.addAttribute("category" , nCategory) ; // manageCategory.jsp ka modelAttribute name
 		
 		if(operation != null) {
 			
@@ -62,7 +62,7 @@ public class CategoryController {
 	
 	// Handling Category submission
 	@RequestMapping(value = "/category" , method = RequestMethod.POST)
-	public String handleCategorySubmission(@Valid @ModelAttribute("category") Category mCategory , BindingResult result , Model m) {
+	public String handleCategorySubmission(@Valid @ModelAttribute("category") Category mCategory , BindingResult result , Model m , HttpServletRequest request) {
 //	public String handleCategorySubmission(@Valid @ModelAttribute Category category , BindingResult result , Model m) {
 
 		System.out.println("Redirecting to manageCategory.jsp from Category Controller section (handleCategorySubmission method).... ");
@@ -83,7 +83,9 @@ public class CategoryController {
 		//categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
 		//categoryDAO.insertUpdateCategory(mCategory);
 		
-		/*
+		//categoryDAO.addCategory(mCategory) ;
+		
+		
 		if(mCategory.getCatid()==0) {
 			
 			categoryDAO.insertUpdateCategory(mCategory); // insert new record if category id is null or zero
@@ -95,9 +97,9 @@ public class CategoryController {
 			categoryDAO.insertUpdateCategory(mCategory); // update existing record if category id exists 
 	
 		}
-		*/
 		
-		/* CategoryDAO.java - alternate method - Start */
+		
+		/* CategoryDAO.java - alternate method - Start 
 		if(mCategory.getCatid() == 0) {
 			
 			categoryDAO.addCategory(mCategory) ; // insert new record if category id is null or zero
@@ -107,7 +109,9 @@ public class CategoryController {
 			
 			categoryDAO.updateCategory(mCategory) ; // update existing record if category id exists
 		}
-		/* CategoryDAO.java - alternate method - End */
+		// CategoryDAO.java - alternate method - End */
+		
+		
 		return "redirect:/manage/category?operation=category" ; // passes message (in the form of query string ) from one url to another url
 
 	//	return "redirect:/manage/category" ; // passes message (in the form of query string ) from one url to another url
@@ -129,9 +133,9 @@ public class CategoryController {
 		m.addAttribute("title" , "Manage Categories Page") ;
 		
 		// fetch category from the database
-		Category newCategory = categoryDAO.getCategory(catid) ;
+		Category nCategory = categoryDAO.getCategory(catid) ;
 		
-		m.addAttribute("category" , newCategory) ; // manageSupplier.jsp ka modelAttribute name 
+		m.addAttribute("category" , nCategory) ; // manageSupplier.jsp ka modelAttribute name 
 	
 		return "page_control" ;
 	}
