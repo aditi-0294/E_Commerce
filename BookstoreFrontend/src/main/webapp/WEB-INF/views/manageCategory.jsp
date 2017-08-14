@@ -75,7 +75,7 @@
 
 								<sf:input type="text" path="cat_name" id="cat_name"
 									placeholder="Category Name" class="form-control" />
-								<%--  	<em class="help-block">Please enter Supplier Name ! </em>  --%>
+								<%--  	<em class="help-block">Please enter Category Name ! </em>  --%>
 
 								<sf:errors path="cat_name" cssClass="help-block" element="em" />
 
@@ -99,7 +99,7 @@
 
 								<sf:textarea path="cat_desc" id="cat_desc" rows="3"
 									placeholder="Category Description" class="form-control"></sf:textarea>
-								<%-- 	<em class="help-block">Please enter Supplier Address ! </em>    --%>
+								<%-- 	<em class="help-block">Please enter Category Description ! </em>    --%>
 
 								<sf:errors path="cat_desc" cssClass="help-block" element="em" />
 
