@@ -252,6 +252,7 @@
 							<!-- Hidden field -->
 							<sf:hidden path="supid" />
 							<sf:hidden path="prodid" />
+							<sf:hidden path="catid" />
 
 
 							<!-- End of second col-md-8 class -->
