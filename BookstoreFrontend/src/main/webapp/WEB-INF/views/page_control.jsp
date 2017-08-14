@@ -93,6 +93,11 @@
 			<c:if test="${userClickAboutUs == true}">
 				<%@ include file="aboutUs.jsp"%>
 			</c:if>
+			
+			<!-- Loading the ContactUs content -->
+			<c:if test="${userClickContactUs == true}">
+				<%@ include file="contactUs.jsp"%>
+			</c:if>
 
 			<!-- Loading the All Products content -->
 			<c:if
