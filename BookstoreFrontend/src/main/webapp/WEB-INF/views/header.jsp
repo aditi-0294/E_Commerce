@@ -81,6 +81,12 @@
 				<li id="about"><a href="${contextRoot}/aboutUs">About Us</a></li>
 				<!-- End of About Us -->
 
+
+				<!-- Contact Us -->
+				<li id="contact"><a href="${contextRoot}/contactUs">Contact Us</a></li>
+				<!-- End of Contact Us -->
+				
+				
 				<security:authorize access="hasAuthority('Admin')">
 					<!-- Manage product - admin part -->
 					<li id="manageProducts"><a
