@@ -33,10 +33,10 @@
 			<p>Today, BooksArchive is a trusted name in retail and technology
 				platform services and a partner of choice for global business.</p>
 			<h3 align="left">
-				<i> For any queries , please feel free to contact us on : </i>
+				<i> For any marketing / business queries , please feel free to contact us on : </i>
 			</h3>
 			<h4>
-				<b>Email Id. : books_archive@rediffmail.com </b>
+				<b>Email Id. : businessImpact@booksArchive.com </b>
 			</h4>
 		</div>
 
