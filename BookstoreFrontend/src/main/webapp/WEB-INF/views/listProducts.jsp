@@ -12,7 +12,7 @@
 </html> --%>
 
 
-<%@ taglib prefix="seurity"
+<%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 
 <div class="container">
