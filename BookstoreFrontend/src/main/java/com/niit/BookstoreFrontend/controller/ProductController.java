@@ -1,5 +1,8 @@
 package com.niit.BookstoreFrontend.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.BookstoreBackend.dao.CategoryDAO;
 import com.niit.BookstoreBackend.dao.ProductDAO;
@@ -21,7 +25,8 @@ import com.niit.BookstoreBackend.dao.SupplierDAO;
 import com.niit.BookstoreBackend.model.Category;
 import com.niit.BookstoreBackend.model.Product;
 import com.niit.BookstoreBackend.model.Supplier;
-import com.niit.BookstoreFrontend.util.FileUploadUtility;
+//import com.niit.BookstoreFrontend.utils.ProductFileUpload;
+//import com.niit.BookstoreFrontend.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -102,17 +107,68 @@ public class ProductController {
 		
 		productDAO.insertUpdateProduct(mProduct);
 		
+		// Image storing :
+		System.out.println();
+		
+		System.out.println("Image storing starts");
+		System.out.println();
+		System.out.println();
+		
+		String img_path = "E:\\NIIT\\github_ECommerce\\E_Commerce\\BookstoreFrontend\\src\\main\\webapp\\resources\\images\\" ; // project location
+		
+		String file_info = img_path + mProduct.getCode() + ".jpg" ; // format in which file will be stored (eg.: ..../images/UID_code.jpg)
+		
+		File file = new File(file_info) ; // creates a new instance in memory of file path . If path exists , no new instance is created .
+		
+		MultipartFile file_data = mProduct.getP_image() ; // uploaded file received in multipart request
+		
+		// if file is not empty
+		if(!file_data.isEmpty()) {
+			
+			try {
+				byte buff[] = file_data.getBytes() ; // encodes a given String into a sequence of bytes and returns an array of bytes
+				
+				System.out.println();
+				System.out.println("Length of file size in bytes :" + buff.length); 
+				System.out.println();
+				
+				FileOutputStream fos = new FileOutputStream(file) ; // write data (streams of raw bytes - image data) to a file
+				BufferedOutputStream bos = new BufferedOutputStream(fos) ; // for converting binary data( bytes ) to characters and back
+				bos.write(buff); // writes output to file
+				
+			}
+			
+			catch(Exception e) {
+				
+				System.out.println("Exception Arised in file upload !!!! : " + e);
+			}
+			
+		}
+		
+		
+		// if file is empty
+		else {
+			
+			System.out.println("File uploading problem !!!! .... ");
+			
+		}
+		
+		System.out.println("Done - Image stored in folder !!!!!! ..... ");
+		
+		/*
 		// image upload
 		if(!mProduct.getP_image().getOriginalFilename().equals("")) { // filename not equals to an empty string so file element (image file) is available for upload
 		
-			FileUploadUtility.uploadFile(request , mProduct.getP_image() , mProduct.getCode()) ; 
+		//	FileUploadUtility.uploadFile(request , mProduct.getP_image() , mProduct.getCode()) ; 
+			
+			ProductFileUpload.uploadFile(request, mProduct.getP_image(), mProduct.getCode());
 			
 			/* first parameter - HttpServlet Request object (request) - to get the real path
 			 * second parameter - multipart file - available in p_image file field
 			 * third parameter - // code
 			 */
 			
-		}
+		//}
 		
 		return "redirect:/manage/products?operation=product" ; // passes message (in the form of query string ) from one url to another url
 	}
