@@ -224,7 +224,7 @@
 								an Image : </label>
 							<div class="col-md-8">
 								<!-- Start of second col-md-8 class -->
-								<input type="file" name="p_image" id="p_image"
+								<input type="file" name="p_image" path="p_image" id="p_image"
 									class="form-control" />
 								<%-- 								<em class="help-block">Please select file to upload </em>							--%>
 								<sf:errors path="p_image" cssClass="help-block" element="em" />
