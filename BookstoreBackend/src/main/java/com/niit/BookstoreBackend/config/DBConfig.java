@@ -49,7 +49,10 @@ public class DBConfig {
 	//	dataSource.setDialect("org.hibernate.dialect.H2Dialect") ;
 	//	dataSource.setUrl("jdbc:h2:tcp://localhost/~/booksArchive"); // original url
 	//	dataSource.setUrl("jdbc:h2:tcp://localhost/~/bookStore"); // new url
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/ECommerce"); // final url
+	//	dataSource.setUrl("jdbc:h2:tcp://localhost/~/ECommerce"); // final url
+		
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/project_1"); // final url
+		
 		dataSource.setUsername("aditi");
 		dataSource.setPassword("sanaditi");
 		
