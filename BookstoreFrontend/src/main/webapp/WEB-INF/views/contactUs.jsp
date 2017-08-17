@@ -18,12 +18,12 @@
 	<div class="row-fluid">
 		<!-- Start of row-fluid class -->
 
-<h1 class = "page-header">Contact Us </h1> 
+		<h1 class="page-header">BooksArchive - Reach Us :</h1>
 
 		<div class="span8">
 			<!-- Start of span8 class -->
 
-<br/>
+			<br />
 			<%--
 			<iframe width="100%" height="350" frameborder="0" scrolling="no"
 				marginheight="0" marginwidth="0"
@@ -41,25 +41,60 @@
 		<div class="span4">
 			<!-- Start of span4 class -->
 
-			<h2>Registered Office Address :</h2>
-
-			<br /> 
-
-			<address>
-
-				<strong><h3>BooksArchive - Official book site </h3></strong> <br /> <br/>
-				15 Springfield Way , Kane Road , <br> Near Mount Mary Basilica
-				Church , <br>Bandra west , Mumbai , <br> Maharashtra ,
-				India - 400050 .<br> <br /> 
-				
-				<b><i>Email Id. : queries@booksArchive.com </i></b> <br /> <br /> 
-				
-				<b><i>Contact No. : +91-1234567890 </i></b>
+			<div class="row">
+				<!-- Start of row class -->
 
 
-			</address>
+				<div class="col-md-7">
+					<!-- start of col-md-7 class -->
+					<h2>Registered Office Address :</h2>
+
+					<br />
+
+					<address>
+
+						<strong><h3>BooksArchive - Official book site</h3></strong> <br />
+						<br />
+						<h4>
+							<b>15 Springfield Way , Kane Road , <br> Near Mount Mary
+								Basilica Church , <br>Bandra west , Mumbai , <br>
+								Maharashtra , India - 400050 .
+							</b>
+						</h4>
+						<br> <br /> <b><i>Email Id. :
+								queries@booksArchive.com </i></b> <br /> <br /> <b><i>Contact
+								No. : +91-1234567890 </i></b>
 
 
+					</address>
+				</div>
+				<!-- End of col-md-7 class -->
+
+
+				<div class="col-md-5">
+					<!-- Start of col-md-5 class -->
+
+					<h2>Working hours :</h2>
+					<br /> <br />
+
+					<h4>
+						<b>Sunday to Thursday : 09:00 am to 06:00 pm</b>
+					</h4>
+					<br /> <br />
+					<h4>
+						<b>Friday and Saturday holiday.</b>
+					</h4>
+
+
+
+
+
+
+				</div>
+				<!-- End of col-md-5 class -->
+
+			</div>
+			<!-- End of row class -->
 		</div>
 		<!-- End of span4 class -->
 
