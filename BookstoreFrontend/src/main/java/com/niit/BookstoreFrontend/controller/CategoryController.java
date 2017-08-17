@@ -133,9 +133,9 @@ public class CategoryController {
 		m.addAttribute("title" , "Manage Categories Page") ;
 		
 		// fetch category from the database
-		Category nCategory = categoryDAO.getCategory(catid) ;
+	//	Category nCategory = categoryDAO.getCategory(catid) ;
 		
-		m.addAttribute("category" , nCategory) ; // manageSupplier.jsp ka modelAttribute name 
+		m.addAttribute("category" , categoryDAO.getCategory(catid)) ; // manageSupplier.jsp ka modelAttribute name 
 	
 		return "page_control" ;
 	}
@@ -168,14 +168,17 @@ public class CategoryController {
 		
 		categoryDAO.deleteCategory(category) ;
 		
-		/*  /// Not Working 
+		/*
+		
+		  /// Not Working 
 		if(operation != null) {
 			
-			if(operation.equals("/delete/{catid}/category")) {
+			if(operation.equals("categoryDAO.deleteCategory(category)")) {
 				
 				m.addAttribute("message" , "Category deleted successfully !!") ;
 			}
 		}
+		
 		*/
 		
 	//	m.addAttribute("message" , "Category deleted successfully !!") ; // displays on address bar
