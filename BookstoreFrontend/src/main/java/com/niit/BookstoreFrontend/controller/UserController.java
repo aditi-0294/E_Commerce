@@ -2,6 +2,8 @@ package com.niit.BookstoreFrontend.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.BookstoreBackend.dao.UserDetailDAO;
+import com.niit.BookstoreBackend.model.EmailService;
 import com.niit.BookstoreBackend.model.UserDetail;
 
 @Controller
@@ -19,6 +22,9 @@ public class UserController {
 
 	@Autowired
 	UserDetailDAO userDetailDAO ;
+	
+	@Autowired
+	EmailService emailservice ;
 
 	public UserController() {
 		
@@ -58,7 +64,7 @@ public class UserController {
 	public String addUserPage (@RequestParam("customer_name") String customer_name , 
 			@RequestParam("username") String username , @RequestParam("email") String email ,
 			@RequestParam("password") String password , @RequestParam("address") String address ,
-			@RequestParam("mobile_number") String mobile_number , UserDetail mUserDetail , Model m) {
+			@RequestParam("mobile_number") String mobile_number , UserDetail mUserDetail , Model m) throws MessagingException {
 		
 		System.out.println("Redirecting to register.jsp page from User Controller section (showRegisterPage)");
 		System.out.println();
@@ -78,6 +84,12 @@ public class UserController {
 		mUserDetail.setRole("User");
 		mUserDetail.setRole_enabled(true);
 		
+		emailservice.sendMail(mUserDetail , "Hello " + mUserDetail.getUsername() + " , Your account has been activated .... " ,
+				
+				" Welcome to BooksArchive - an online bookstore ....  Your account has been activated and the password is : " + mUserDetail.getPassword() + 
+				
+				"Regards , BooksArchive.com team " 
+				) ;
 		
 		// create and store userDetail record in database
 		userDetailDAO.insertUpdateUserDetail(mUserDetail);
@@ -86,6 +98,9 @@ public class UserController {
 		
 		System.out.println();
 		
+		
+	/*	
+	*/	
 		return "redirect:/register/newUser?operation=userDetail" ;
 	}
 	
