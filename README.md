@@ -6,6 +6,6 @@ Summary :- An online e-commerce site which manages end-to-end display and sale o
 
 Tools and Technologies :-
 
-Technology - Java , SpringMVC , Hibernate , Spring Security , Bootstrap .
-Database - H2 .
-Application Server - Apache tomcat ( version 8.5 ) .
+1. Technology - Java , SpringMVC , Hibernate , Spring Security , Bootstrap .
+2. Database - H2 .
+3. Application Server - Apache tomcat ( version 8.5 )
