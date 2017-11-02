@@ -9,6 +9,3 @@ Tools and Technologies :-
 Technology - Java , SpringMVC , Hibernate , Spring Security , Bootstrap .
 Database - H2 .
 Application Server - Apache tomcat ( version 8.5 ) .
-
-*****************
-
