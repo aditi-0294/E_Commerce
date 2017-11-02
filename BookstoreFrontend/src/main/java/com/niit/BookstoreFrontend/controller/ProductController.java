@@ -120,55 +120,6 @@ public class ProductController {
 		
 		File file = new File(file_info) ; // creates a new instance in memory of file path . If path exists , no new instance is created .
 		
-		MultipartFile file_data = mProduct.getP_image() ; // uploaded file received in multipart request
-		
-		// if file is not empty
-		if(!file_data.isEmpty()) {
-			
-			try {
-				byte buff[] = file_data.getBytes() ; // encodes a given String into a sequence of bytes and returns an array of bytes
-				
-				System.out.println();
-				System.out.println("Length of file size in bytes :" + buff.length); 
-				System.out.println();
-				
-				FileOutputStream fos = new FileOutputStream(file) ; // write data (streams of raw bytes - image data) to a file
-				BufferedOutputStream bos = new BufferedOutputStream(fos) ; // for converting binary data( bytes ) to characters and back
-				bos.write(buff); // writes output to file
-				
-			}
-			
-			catch(Exception e) {
-				
-				System.out.println("Exception Arised in file upload !!!! : " + e);
-			}
-			
-		}
-		
-		
-		// if file is empty
-		else {
-			
-			System.out.println("File uploading problem !!!! .... ");
-			
-		}
-		
-		System.out.println("Done - Image stored in folder !!!!!! ..... ");
-		
-		/*
-		// image upload
-		if(!mProduct.getP_image().getOriginalFilename().equals("")) { // filename not equals to an empty string so file element (image file) is available for upload
-		
-		//	FileUploadUtility.uploadFile(request , mProduct.getP_image() , mProduct.getCode()) ; 
-			
-			ProductFileUpload.uploadFile(request, mProduct.getP_image(), mProduct.getCode());
-			
-			/* first parameter - HttpServlet Request object (request) - to get the real path
-			 * second parameter - multipart file - available in p_image file field
-			 * third parameter - // code
-			 */
-			
-		//}
 		
 		return "redirect:/manage/products?operation=product" ; // passes message (in the form of query string ) from one url to another url
 	}
