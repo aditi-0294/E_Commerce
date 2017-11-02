@@ -40,7 +40,10 @@
 			that contains all relevant information and resides in web-inf folder -->
 
 	</bean>
-	
+
+
+
+			
 	<!--  id must be compulsorily multipartResolver else it wont work -->
  	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
