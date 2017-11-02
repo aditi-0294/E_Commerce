@@ -24,8 +24,10 @@
 	<div class="row">
 		<!-- Start of first row class -->
 
+<%-- original : <c:if> and delete <c:choose> --%>
+<c:choose>
 
-		<c:if test="${not empty message}">
+		<c:when test="${not empty message}">
 			<div class="col-xs-12">
 				<!-- Start of col-xs-12 class -->
 
@@ -41,7 +43,49 @@
 
 			</div>
 			<!-- End of col-xs-12 class -->
-		</c:if>
+		</c:when>
+		
+<c:when test="${not empty username}">
+			<div class="col-xs-12">
+				<!-- Start of col-xs-12 class -->
+
+				<div class="alert alert-success alert-dismissible">
+
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+					${username}
+
+				</div>
+
+
+
+			</div>
+			<!-- End of col-xs-12 class -->
+		</c:when>
+
+
+<c:when test="${not empty email}">
+			<div class="col-xs-12">
+				<!-- Start of col-xs-12 class -->
+
+				<div class="alert alert-success alert-dismissible">
+
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+					${email}
+
+				</div>
+
+
+
+			</div>
+			<!-- End of col-xs-12 class -->
+		</c:when>
+
+</c:choose>
+<br/>
+
+
 
 
 		<div class="col-md-offset-2 col-md-8">
@@ -98,7 +142,8 @@
 								<!-- Start of col-md-8 class -->
 
 								<input type="text" name="username" id="username"
-									class="form-control" />
+									class="form-control" /> 
+									
 
 							</div>
 							<!-- End of col-md-8 class -->
@@ -122,6 +167,10 @@
 								<input type="text" name="email" id="email" class="form-control"
 									required
 									pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" />
+									
+						
+								
+								
 
 							</div>
 							<!-- End of col-md-8 class -->
